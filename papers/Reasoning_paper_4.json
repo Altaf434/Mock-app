@@ -1,0 +1,362 @@
+[
+  {
+    "question_text": "In the following question, select the related word from the given alternatives:\nLength : Meter :: Mass : ?",
+    "options": [
+      "Kilogram",
+      "Pound",
+      "Weight",
+      "Scale"
+    ],
+    "correct_option": 1,
+    "explanation": "Meter is the standard SI unit for measuring Length. Similarly, Kilogram is the standard SI unit for measuring Mass.",
+    "topic": "Analogy",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 1
+  },
+  {
+    "question_text": "Find the best option that best completes the analogy.\nBDF : HJL :: NPG : ?",
+    "options": [
+      "TVM",
+      "SVM",
+      "TWL",
+      "UVM"
+    ],
+    "correct_option": 1,
+    "explanation": "In the first pair, each letter of BDF is shifted forward by 6 positions in the alphabet to get HJL (B+6=H, D+6=J, F+6=L). Applying the same rule to NPG, we get N+6=T, P+6=V, G+6=M, resulting in TVM.",
+    "topic": "Analogy",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 2
+  },
+  {
+    "question_text": "Apply the same pattern used in the following group and find the correct option.\nBRIGHT : DVMKJW :: WINTER : ?",
+    "options": [
+      "YLPSGU",
+      "YLPWGU",
+      "ZMPWHV",
+      "XMPWGU"
+    ],
+    "correct_option": 2,
+    "explanation": "The pattern involves adding 2 to the first letter, 3 to the second, 2 to the third, and so on, alternating between +2 and +3 for successive letters (B+2=D, R+3=V, I+2=K, G+3=J, H+2=J, T+3=W). Applying this to WINTER gives W+2=Y, I+3=L, N+2=P, T+3=W, E+2=G, R+3=U, resulting in YLPWGU.",
+    "topic": "Analogy",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 3
+  },
+  {
+    "question_text": "If P is the sister of Q, and Q is the son of R, how is P related to R?",
+    "options": [
+      "Mother",
+      "Daughter",
+      "Brother",
+      "Niece"
+    ],
+    "correct_option": 2,
+    "explanation": "If P is the sister of Q, and Q is the son of R, then P must also be the child of R. Since P is female, she is R's daughter.",
+    "topic": "Blood Relations",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 4
+  },
+  {
+    "question_text": "Pointing to a woman, Ramesh says, \"She is the daughter of my father's only son.\" How is the woman related to Ramesh?",
+    "options": [
+      "Sister",
+      "Mother",
+      "Daughter",
+      "Wife"
+    ],
+    "correct_option": 3,
+    "explanation": "Ramesh's father's only son is Ramesh himself. The woman is the daughter of Ramesh. Therefore, the woman is Ramesh's daughter.",
+    "topic": "Blood Relations",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 5
+  },
+  {
+    "question_text": "Find the odd one out.",
+    "options": [
+      "Red",
+      "Blue",
+      "Green",
+      "Circle"
+    ],
+    "correct_option": 4,
+    "explanation": "Red, Blue, and Green are all primary colors. Circle, on the other hand, is a geometric shape, making it the odd one out.",
+    "topic": "Classification",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 6
+  },
+  {
+    "question_text": "Which group does not match the pattern?",
+    "options": [
+      "3, 9, 27",
+      "4, 12, 36",
+      "5, 15, 40",
+      "2, 6, 18"
+    ],
+    "correct_option": 3,
+    "explanation": "In options 1, 2, and 4, each subsequent number in the group is three times the previous number (x3 pattern). In '5, 15, 40', the pattern is 5 x 3 = 15, but 15 x 3 = 45, not 40.",
+    "topic": "Classification",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 7
+  },
+  {
+    "question_text": "If CAT = 24267 and DOG = 231220, then RAT = ?",
+    "options": [
+      "9267",
+      "9268",
+      "18267",
+      "91207"
+    ],
+    "correct_option": 1,
+    "explanation": "Each letter is coded by its reverse alphabetical position (where Z=1, Y=2, ..., A=26). C (3rd) becomes 24 (26-3+1), A (1st) becomes 26 (26-1+1), T (20th) becomes 7 (26-20+1). Applying this to RAT: R (18th) becomes 9, A (1st) becomes 26, and T (20th) becomes 7, resulting in 9267.",
+    "topic": "Coding-Decoding",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 8
+  },
+  {
+    "question_text": "If the product of 15 and 4 is subtracted from 100, what is the result?",
+    "options": [
+      "60",
+      "40",
+      "85",
+      "70"
+    ],
+    "correct_option": 2,
+    "explanation": "First, calculate the product of 15 and 4, which is 60. Then, subtract this product from 100: 100 - 60 = 40.",
+    "topic": "Mathematical Operations",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 9
+  },
+  {
+    "question_text": "If 7 + 3 = 21 and 9 + 4 = 36, then 11 + 5 = ?",
+    "options": [
+      "50",
+      "55",
+      "60",
+      "45"
+    ],
+    "correct_option": 2,
+    "explanation": "In this pattern, the '+' symbol actually represents multiplication. Following this rule, 11 + 5 means 11 multiplied by 5, which equals 55.",
+    "topic": "Mathematical Operations",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 10
+  },
+  {
+    "question_text": "What is the value of (25 divided by 5) plus (12 multiplied by 3)?",
+    "options": [
+      "38",
+      "41",
+      "45",
+      "50"
+    ],
+    "correct_option": 2,
+    "explanation": "First, perform the division: 25 ÷ 5 = 5. Next, perform the multiplication: 12 × 3 = 36. Finally, add these two results: 5 + 36 = 41.",
+    "topic": "Mathematical Operations",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 11
+  },
+  {
+    "question_text": "Which of the following product serial numbers are identical?",
+    "options": [
+      "1 and 2",
+      "2 and 3",
+      "1 and 4",
+      "3 and 4"
+    ],
+    "correct_option": 1,
+    "explanation": "Upon careful comparison, serial number 1 (PQR-001-XYZ-45) and serial number 2 (PQR-001-XYZ-45) are exactly the same. The other options have variations in characters or digits.",
+    "topic": "Other",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 12
+  },
+  {
+    "question_text": "Find the missing number in the series: 5, 10, 15, 20, ?",
+    "options": [
+      "22",
+      "25",
+      "28",
+      "30"
+    ],
+    "correct_option": 2,
+    "explanation": "Each subsequent number in the series is obtained by adding 5 to the previous number. So, 20 + 5 = 25.",
+    "topic": "Series",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 13
+  },
+  {
+    "question_text": "Identify the number that does not fit the pattern: 2, 5, 11, 23, 47, 90",
+    "options": [
+      "5",
+      "11",
+      "47",
+      "90"
+    ],
+    "correct_option": 4,
+    "explanation": "The pattern is (previous number * 2) + 1. Following this, after 47, the next number should be (47 * 2) + 1 = 94 + 1 = 95. Therefore, 90 is the incorrect term.",
+    "topic": "Series",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 14
+  },
+  {
+    "question_text": "What is the next number in the sequence: 1, 4, 9, 16, ?",
+    "options": [
+      "20",
+      "25",
+      "30",
+      "36"
+    ],
+    "correct_option": 2,
+    "explanation": "The series consists of the squares of consecutive natural numbers: 1^2=1, 2^2=4, 3^2=9, 4^2=16. The next number will be 5^2 = 25.",
+    "topic": "Series",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 15
+  },
+  {
+    "question_text": "One number is out of place in the following series. Find it: 7, 10, 13, 16, 19, 23",
+    "options": [
+      "10",
+      "13",
+      "19",
+      "23"
+    ],
+    "correct_option": 4,
+    "explanation": "The series follows a simple arithmetic progression where each term is obtained by adding 3 to the previous term. The number after 19 should be 19 + 3 = 22, not 23.",
+    "topic": "Series",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 16
+  },
+  {
+    "question_text": "Complete the series: 3, 5, 9, 17, ?",
+    "options": [
+      "31",
+      "33",
+      "35",
+      "37"
+    ],
+    "correct_option": 2,
+    "explanation": "The pattern for the series is (previous number * 2) - 1. So, 3*2-1=5, 5*2-1=9, 9*2-1=17. The next term is (17*2) - 1 = 34 - 1 = 33.",
+    "topic": "Series",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 17
+  },
+  {
+    "question_text": "Find the number that breaks the given sequence: 50, 45, 40, 35, 30, 24",
+    "options": [
+      "45",
+      "35",
+      "30",
+      "24"
+    ],
+    "correct_option": 4,
+    "explanation": "This is an arithmetic series where each number is 5 less than the previous one. Following the pattern, after 30, the next number should be 30 - 5 = 25. Hence, 24 is the incorrect term.",
+    "topic": "Series",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 18
+  },
+  {
+    "question_text": "Select the letter-cluster from among the given options that can replace the question mark (?) in the following series.\nCMO, FRR, KUU, ?",
+    "options": [
+      "RZW",
+      "RZY",
+      "RZX",
+      "SZX"
+    ],
+    "correct_option": 3,
+    "explanation": "The pattern for the first letter is an increasing skip: C (+3) F (+5) K (+7) R. The pattern for the second letter is an alternating skip: M (+5) R (+3) U (+5) Z. The pattern for the third letter is a consistent skip of +3: O (+3) R (+3) U (+3) X. Thus, the next cluster is RZX.",
+    "topic": "Series",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 19
+  },
+  {
+    "question_text": "Select the letter-cluster from among the given options that can replace the question mark (?) in the following series.\nAFK, CJP, EOU, ?",
+    "options": [
+      "GVB",
+      "GUZ",
+      "HVZ",
+      "GVZ"
+    ],
+    "correct_option": 2,
+    "explanation": "The pattern for the first letter is a consistent skip of +2: A (+2) C (+2) E (+2) G. The pattern for the second letter is an increasing skip: F (+4) J (+5) O (+6) U. The pattern for the third letter is a consistent skip of +5: K (+5) P (+5) U (+5) Z. Thus, the next cluster is GUZ.",
+    "topic": "Series",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 20
+  },
+  {
+    "question_text": "Identify the assumptions that must be implicit for the statement to be valid.\nStatement: Despite a significant increase in public spending on mental health services, the national prevalence of anxiety and depression has not shown a marked decline over the past five years.",
+    "options": [
+      "Only I",
+      "Only I and II",
+      "Only II and III",
+      "All I, II and III"
+    ],
+    "correct_option": 4,
+    "explanation": "Assumption I is necessary: If current intervention strategies were fully effective, an increase in spending should logically lead to a decline in prevalence. For no decline to occur, it must be assumed the strategies are not fully effective. Assumption II is necessary: Intensifying societal pressures could be counteracting the benefits of increased services, explaining the lack of decline. Assumption III is necessary: For the statement regarding 'prevalence' over a period to be valid, the methods of diagnosis and reporting must remain consistent; otherwise, the observed trend (or lack thereof) would be unreliable.",
+    "topic": "Statement-Conclusion",
+    "difficulty": "Hard",
+    "section": "Reasoning",
+    "question_number": 21
+  },
+  {
+    "question_text": "Read the following statement carefully and identify the conclusion(s) that follow.\nStatement:\nAll successful entrepreneurs demonstrate strong leadership qualities.\nConclusions:\nI. Some people with strong leadership qualities are successful entrepreneurs.\nII. No unsuccessful entrepreneur demonstrates strong leadership qualities.",
+    "options": [
+      "Only I follows",
+      "Only II follows",
+      "Both I and II follow",
+      "Neither I nor II follows"
+    ],
+    "correct_option": 1,
+    "explanation": "Conclusion I is a valid immediate inference (conversion of an A-type proposition, 'All A are B' implies 'Some B are A'). Conclusion II does not necessarily follow; an unsuccessful entrepreneur might still possess strong leadership qualities but fail for other reasons.",
+    "topic": "Statement-Conclusion",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 22
+  },
+  {
+    "question_text": "Which word cannot be formed from CONTAMINATION?",
+    "options": [
+      "NATION",
+      "ACTION",
+      "MINION",
+      "TORNADO"
+    ],
+    "correct_option": 4,
+    "explanation": "The word 'TORNADO' contains the letters 'R' and 'D', which are not present in the original word 'CONTAMINATION'. All other options can be formed using the letters available.",
+    "topic": "Word Formation",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 23
+  },
+  {
+    "question_text": "Each of the letters in the word CREATION is arranged in alphabetical order. How many letters are there in the new arrangement between the third letter from the left and the second letter from the right?",
+    "options": [
+      "Two",
+      "Three",
+      "Four",
+      "Five"
+    ],
+    "correct_option": 2,
+    "explanation": "When 'CREATION' is arranged alphabetically, it becomes A, C, E, I, N, O, R, T. The third letter from the left is 'E' and the second letter from the right is 'R'. The letters between 'E' and 'R' in the new arrangement are I, N, O, which are three letters.",
+    "topic": "Word Formation",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 24
+  }
+]

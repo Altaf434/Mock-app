@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Welcome · Mock Exam Portal</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="on-dark">
+  <div class="gate-wrap">
+    <div class="admit-card">
+      <div class="admit-card__band">
+        <h1>Hey, welcome! 👋</h1>
+      </div>
+      <div class="admit-card__body">
+        <p class="lede">Just your name and where you're from, and you're in — no password, no account.</p>
+        <form id="gate-form">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" placeholder="e.g. Aditi Sharma" autocomplete="name" maxlength="100" required />
+          </div>
+          <div class="field">
+            <label for="location">Your city</label>
+            <input id="location" name="location" type="text" placeholder="e.g. Bengaluru" autocomplete="address-level2" maxlength="150" required />
+          </div>
+          <div class="gate-error" id="gate-error" role="alert">Please fill in both fields to continue.</div>
+          <button type="submit" class="btn btn-primary" id="submit-btn">Start practicing</button>
+        </form>
+      </div>
+      <div class="admit-card__footer">
+        <span>Just used to keep track of who's practicing 🙂</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/common.js"></script>
+  <script>
+    // Already have a visitor id? skip straight to the papers list.
+    const existing = getVisitor();
+    if (existing && existing.visitorId) {
+      window.location.href = "/papers.html";
+    }
+
+    const form = document.getElementById("gate-form");
+    const errorEl = document.getElementById("gate-error");
+    const submitBtn = document.getElementById("submit-btn");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const location = document.getElementById("location").value.trim();
+
+      if (!name || !location) {
+        errorEl.style.display = "block";
+        return;
+      }
+      errorEl.style.display = "none";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "One sec…";
+
+      try {
+        const res = await fetch("/api/visitors", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, location }),
+        });
+        if (!res.ok) throw new Error("failed");
+        const data = await res.json();
+        setVisitor({ visitorId: data.visitorId, name: data.name });
+        window.location.href = "/papers.html";
+      } catch (err) {
+        errorEl.textContent = "Something went wrong — please try again.";
+        errorEl.style.display = "block";
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Start practicing";
+      }
+    });
+  </script>
+</body>
+</html>

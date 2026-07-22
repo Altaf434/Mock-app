@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Attempt · Mock Exam Portal</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="exam-shell">
+    <div class="exam-topbar">
+      <div class="topbar-left">
+        <div class="title" id="paper-title">Loading paper…</div>
+        <div class="progress-track" id="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+        </div>
+      </div>
+      <div class="timer" id="timer">00:00</div>
+    </div>
+
+    <div id="loading" class="loading"><span class="spinner"></span> Fetching your question booklet…</div>
+
+    <div class="exam-body" id="exam-body" style="display:none;">
+      <div class="question-card">
+        <div class="q-meta">
+          <span class="tag" id="q-section"></span>
+          <span class="tag" id="q-topic"></span>
+          <span class="tag" id="q-difficulty"></span>
+        </div>
+        <div class="q-number" id="q-number"></div>
+        <p class="q-text" id="q-text"></p>
+        <div class="options" id="options"></div>
+        <div class="nav-row">
+          <button class="btn btn-outline" id="prev-btn">← Previous</button>
+          <button class="btn btn-outline" id="clear-btn">Clear response</button>
+          <button class="btn btn-primary" id="next-btn">Next →</button>
+        </div>
+      </div>
+
+      <div class="palette-panel">
+        <h4>Question palette</h4>
+        <div class="palette-grid" id="palette-grid"></div>
+        <div class="legend">
+          <div><span class="dot" style="background:var(--green-ink)"></span> Answered</div>
+          <div><span class="dot" style="background:var(--paper);border:1px solid var(--paper-line)"></span> Not answered</div>
+        </div>
+        <button class="btn btn-gold" style="width:100%" id="submit-btn">Submit paper</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/common.js"></script>
+  <script>
+    const visitor = requireVisitorOrRedirect();
+
+    const params = new URLSearchParams(window.location.search);
+    const paperId = params.get("paper");
+    if (!paperId) window.location.href = "/papers.html";
+
+    let paper = null;
+    let currentIndex = 0;
+    const answers = {}; // question_number -> selected_option index
+    let timerHandle = null;
+
+    // Fixed exam duration. All current papers are Reasoning-only mock
+    // tests, so a flat 15-minute clock is used for every attempt.
+    const EXAM_DURATION_SECONDS = 15 * 60;
+    let secondsRemaining = EXAM_DURATION_SECONDS;
+    let autoSubmitted = false;
+
+    function elapsedSeconds() {
+      return EXAM_DURATION_SECONDS - secondsRemaining;
+    }
+
+    async function loadPaper() {
+      let res;
+      try {
+        res = await fetch(`/api/papers/${encodeURIComponent(paperId)}`);
+      } catch {
+        document.getElementById("loading").textContent = "Couldn't reach the server. Check your connection and reload.";
+        return;
+      }
+      if (!res.ok) {
+        document.getElementById("loading").textContent = "Couldn't load this paper. It may no longer exist.";
+        return;
+      }
+      paper = await res.json();
+      document.getElementById("paper-title").textContent = paper.title;
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("exam-body").style.display = "grid";
+      renderPalette();
+      renderQuestion();
+      startTimer();
+      enableLeaveGuard();
+    }
+
+    function startTimer() {
+      const timerEl = document.getElementById("timer");
+      timerEl.textContent = formatSeconds(secondsRemaining);
+
+      timerHandle = setInterval(() => {
+        secondsRemaining -= 1;
+        timerEl.textContent = formatSeconds(Math.max(secondsRemaining, 0));
+
+        if (secondsRemaining <= 60) {
+          timerEl.classList.add("low-time");
+          if (secondsRemaining === 60) {
+            showToast("1 minute left — wrap up your answers.", { type: "warn" });
+          }
+        }
+
+        if (secondsRemaining <= 0) {
+          clearInterval(timerHandle);
+          if (!autoSubmitted) {
+            autoSubmitted = true;
+            attemptSubmit(true);
+          }
+        }
+      }, 1000);
+    }
+
+    function renderQuestion() {
+      const q = paper.questions[currentIndex];
+      document.getElementById("q-section").textContent = q.section;
+      document.getElementById("q-topic").textContent = q.topic;
+      document.getElementById("q-difficulty").textContent = q.difficulty;
+      document.getElementById("q-number").textContent = `Question ${currentIndex + 1} of ${paper.questions.length}`;
+      document.getElementById("q-text").textContent = q.question_text;
+
+      const selected = answers[q.question_number];
+      const letters = ["A", "B", "C", "D", "E", "F"];
+
+      document.getElementById("options").innerHTML = q.options.map((opt, i) => `
+        <div class="option ${selected === i ? "selected" : ""}" data-index="${i}">
+          <div class="bubble">${letters[i] || i + 1}</div>
+          <div class="opt-text">${escapeHtml(opt)}</div>
+        </div>
+      `).join("");
+
+      document.querySelectorAll(".option").forEach(el => {
+        el.addEventListener("click", () => {
+          answers[q.question_number] = Number(el.dataset.index);
+          renderQuestion();
+          renderPalette();
+        });
+      });
+
+      document.getElementById("prev-btn").disabled = currentIndex === 0;
+      document.getElementById("next-btn").textContent =
+        currentIndex === paper.questions.length - 1 ? "Review & submit" : "Next →";
+    }
+
+    function renderPalette() {
+      document.getElementById("palette-grid").innerHTML = paper.questions.map((q, i) => {
+        const answered = answers[q.question_number] !== undefined;
+        return `<div class="pnum ${answered ? "answered" : ""} ${i === currentIndex ? "current" : ""}" data-index="${i}">${i + 1}</div>`;
+      }).join("");
+
+      document.querySelectorAll(".pnum").forEach(el => {
+        el.addEventListener("click", () => {
+          currentIndex = Number(el.dataset.index);
+          renderQuestion();
+          renderPalette();
+        });
+      });
+
+      const answeredCount = Object.keys(answers).length;
+      const pct = paper.questions.length ? Math.round((answeredCount / paper.questions.length) * 100) : 0;
+      document.getElementById("progress-fill").style.width = `${pct}%`;
+    }
+
+    document.getElementById("prev-btn").addEventListener("click", () => {
+      if (currentIndex > 0) { currentIndex -= 1; renderQuestion(); renderPalette(); }
+    });
+
+    document.getElementById("next-btn").addEventListener("click", () => {
+      if (currentIndex < paper.questions.length - 1) {
+        currentIndex += 1;
+        renderQuestion();
+        renderPalette();
+      } else {
+        attemptSubmit();
+      }
+    });
+
+    document.getElementById("clear-btn").addEventListener("click", () => {
+      const q = paper.questions[currentIndex];
+      delete answers[q.question_number];
+      renderQuestion();
+      renderPalette();
+    });
+
+    document.getElementById("submit-btn").addEventListener("click", () => attemptSubmit(false));
+
+    // Warn on accidental tab close / refresh mid-exam, but this MUST be
+    // disabled before we navigate away ourselves (on submit) — otherwise
+    // the browser's native "leave site?" prompt intercepts our own
+    // redirect to the results page and submitting silently does nothing
+    // if the user hits Cancel on it.
+    function onBeforeUnload(e) {
+      e.preventDefault();
+      e.returnValue = "";
+    }
+    function enableLeaveGuard() {
+      window.addEventListener("beforeunload", onBeforeUnload);
+    }
+    function disableLeaveGuard() {
+      window.removeEventListener("beforeunload", onBeforeUnload);
+    }
+
+    async function attemptSubmit(isAutoSubmit) {
+      const total = paper.questions.length;
+      const answeredCount = Object.keys(answers).length;
+      if (!isAutoSubmit && answeredCount < total) {
+        const proceed = await showConfirm({
+          title: "Submit paper?",
+          body: `You've answered <strong>${answeredCount}</strong> of <strong>${total}</strong> questions. Unanswered ones score zero. Submit anyway?`,
+          confirmText: "Submit anyway",
+          cancelText: "Keep attempting",
+        });
+        if (!proceed) return;
+      }
+
+      clearInterval(timerHandle);
+      const submitBtn = document.getElementById("submit-btn");
+      submitBtn.disabled = true;
+      submitBtn.textContent = isAutoSubmit ? "Time's up — submitting…" : "Submitting…";
+
+      const answerList = paper.questions.map(q => ({
+        question_number: q.question_number,
+        selected_option: answers[q.question_number] ?? null,
+      }));
+
+      try {
+        const res = await fetch("/api/attempts", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            visitorId: visitor.visitorId,
+            paperId: paper.id,
+            answers: answerList,
+            timeTakenSeconds: elapsedSeconds(),
+          }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "submit failed");
+        disableLeaveGuard();
+        window.location.href = `/results.html?attempt=${data.attemptId}`;
+      } catch (err) {
+        await showAlert({ title: "Submit failed", body: "Couldn't submit your paper. Please check your connection and try again." });
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit paper";
+        if (!isAutoSubmit) startTimer();
+      }
+    }
+
+    if (visitor) loadPaper();
+  </script>
+</body>
+</html>

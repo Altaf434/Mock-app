@@ -1,0 +1,8 @@
+node_modules/
+.env
+*.log
+
+# Local visitor/attempt logs contain real names, locations, and IPs —
+# never commit these to a (likely public) repo. store.js auto-creates
+# empty files here on first run if they're missing.
+data/*.json

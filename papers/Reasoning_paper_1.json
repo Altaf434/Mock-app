@@ -1,0 +1,377 @@
+[
+  {
+    "question_text": "In the following question, select the related word from the given alternatives:\nTree : Forest :: Fish : ?",
+    "options": [
+      "Water",
+      "River",
+      "School",
+      "Aquarium"
+    ],
+    "correct_option": 3,
+    "explanation": "A 'Forest' is a large collection or natural habitat of 'Trees'. Similarly, a 'School' is a collective noun for a large group of 'Fish'.",
+    "topic": "Analogy",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 1
+  },
+  {
+    "question_text": "Find the option that best completes the analogy.\nJKL : MNO :: PQR : ?",
+    "options": [
+      "STU",
+      "VWX",
+      "RST",
+      "QRS"
+    ],
+    "correct_option": 1,
+    "explanation": "In this analogy, the second set of letters immediately follows the first set in alphabetical order. JKL is followed by MNO, so PQR is followed by STU.",
+    "topic": "Analogy",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 2
+  },
+  {
+    "question_text": "In the following question, select the related word from the given alternatives.\nHonesty : Integrity :: Deceit : ?",
+    "options": [
+      "Truth",
+      "Dishonesty",
+      "Sincerity",
+      "Trust"
+    ],
+    "correct_option": 2,
+    "explanation": "Honesty is a virtue closely associated with integrity, indicating moral uprightness and incorruptibility. Similarly, deceit is a vice closely associated with dishonesty, reflecting a lack of truthfulness and straightforwardness.",
+    "topic": "Analogy",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 3
+  },
+  {
+    "question_text": "A is the father of B. B is the sister of C. How is A related to C?",
+    "options": [
+      "Uncle",
+      "Father",
+      "Brother",
+      "Grandfather"
+    ],
+    "correct_option": 2,
+    "explanation": "A is the father of B. Since B is the sister of C, it means B and C are siblings. Therefore, A is also the father of C.",
+    "topic": "Blood Relations",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 4
+  },
+  {
+    "question_text": "Pointing to a man, Reena said, “He is the son of my mother’s brother.” How is the man related to Reena?",
+    "options": [
+      "Brother",
+      "Uncle",
+      "Cousin",
+      "Nephew"
+    ],
+    "correct_option": 3,
+    "explanation": "Reena's mother's brother is Reena's maternal uncle. The man is the son of Reena's maternal uncle, which makes him Reena's cousin.",
+    "topic": "Blood Relations",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 5
+  },
+  {
+    "question_text": "M is the daughter of N. N is the wife of O. O is the brother of P. How is M related to P?",
+    "options": [
+      "Niece",
+      "Daughter",
+      "Sister",
+      "Mother"
+    ],
+    "correct_option": 1,
+    "explanation": "M is the daughter of N and O (since N is O's wife). O is the brother of P. This means P is M's paternal uncle, and M is P's niece.",
+    "topic": "Blood Relations",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 6
+  },
+  {
+    "question_text": "Pointing to a woman, Rohit said, \"She is the sister of my mother's husband's mother.\" How is the woman related to Rohit?",
+    "options": [
+      "Mother",
+      "Paternal Aunt",
+      "Paternal Grandmother",
+      "Paternal Grand-aunt"
+    ],
+    "correct_option": 4,
+    "explanation": "Rohit's mother's husband is his father. His father's mother is his paternal grandmother. Therefore, the woman, being the sister of his paternal grandmother, is his paternal grand-aunt.",
+    "topic": "Blood Relations",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 7
+  },
+  {
+    "question_text": "Find the odd one out.",
+    "options": [
+      "Chair",
+      "Curtain",
+      "Table",
+      "Sofa"
+    ],
+    "correct_option": 2,
+    "explanation": "Chair, Table, and Sofa are all types of furniture. Curtain is a window dressing and not a piece of furniture.",
+    "topic": "Classification",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 8
+  },
+  {
+    "question_text": "Which of the following number sets is different from the others?",
+    "options": [
+      "(3, 10, 17)",
+      "(6, 13, 20)",
+      "(5, 12, 18)",
+      "(8, 15, 22)"
+    ],
+    "correct_option": 3,
+    "explanation": "In sets (3, 10, 17), (6, 13, 20), and (8, 15, 22), each subsequent number increases by 7 (e.g., 3+7=10, 10+7=17). In the set (5, 12, 18), the second number is 5+7=12, but the third number is 12+6=18, not 12+7=19, making it the odd one out.",
+    "topic": "Classification",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 9
+  },
+  {
+    "question_text": "Find the odd one out.",
+    "options": [
+      "125",
+      "343",
+      "625",
+      "729"
+    ],
+    "correct_option": 3,
+    "explanation": "125 is 5³, 343 is 7³, and 729 is 9³. All three are perfect cubes. However, 625 is 5⁴ (or 25²), which is not a perfect cube.",
+    "topic": "Classification",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 10
+  },
+  {
+    "question_text": "In a certain code language, BRIGHT is coded as CTLKMZ. How will CHAIRS be coded in the same language?",
+    "options": [
+      "DJDMWY",
+      "DLDMWY",
+      "DJDMVW",
+      "CKDMVY"
+    ],
+    "correct_option": 1,
+    "explanation": "The letters of the word BRIGHT are shifted forward by 1, 2, 3, 4, 5, and 6 positions respectively to get the coded word CTLKMZ. Applying the same logic to CHAIRS: C(+1)D, H(+2)J, A(+3)D, I(+4)M, R(+5)W, S(+6)Y, resulting in DJDMWY.",
+    "topic": "Coding-Decoding",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 11
+  },
+  {
+    "question_text": "If \"PLANT\" is coded as \"% $ # ^ @\" and \"TREAD\" is coded as \"@ * ! # &\", then what is the code for \"TRAVEL\"?",
+    "options": [
+      "@*#~#$",
+      "@*#~!$",
+      "%*#~!$",
+      "@#*~!$"
+    ],
+    "correct_option": 2,
+    "explanation": "By comparing the given codes, we deduce the mapping: P=%, L=$, A=#, N=^, T=@, R=*, E=!, D=&. For 'TRAVEL', T=@, R=*, A=#, V (assume new symbol) = ~, E=!, L=$, hence 'TRAVEL' is coded as @*#~!$.",
+    "topic": "Coding-Decoding",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 12
+  },
+  {
+    "question_text": "If 15 - 5 = 75 and 12 - 4 = 48, then 18 - 3 = ?",
+    "options": [
+      "50",
+      "54",
+      "60",
+      "48"
+    ],
+    "correct_option": 2,
+    "explanation": "The given operation ' - ' actually represents multiplication. Following this pattern, 18 multiplied by 3 equals 54.",
+    "topic": "Mathematical Operations",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 13
+  },
+  {
+    "question_text": "What is the result if 72 is divided by 8, and the quotient is then multiplied by 5?",
+    "options": [
+      "40",
+      "45",
+      "50",
+      "55"
+    ],
+    "correct_option": 2,
+    "explanation": "First, divide 72 by 8, which gives 9. Then, multiply this quotient (9) by 5, resulting in 45.",
+    "topic": "Mathematical Operations",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 14
+  },
+  {
+    "question_text": "If 'P' means '×', 'Q' means '÷', 'R' means '+', and 'S' means '–', then what is the value of 36 Q 6 P 3 S 7 R 4?",
+    "options": [
+      "15",
+      "21",
+      "11",
+      "18"
+    ],
+    "correct_option": 1,
+    "explanation": "Substitute the symbols into the expression: 36 ÷ 6 × 3 – 7 + 4. Following the order of operations (BODMAS/PEMDAS), first perform division: 36 ÷ 6 = 6. Next, perform multiplication: 6 × 3 = 18. Finally, perform subtraction and addition from left to right: 18 – 7 = 11, then 11 + 4 = 15.",
+    "topic": "Mathematical Operations",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 15
+  },
+  {
+    "question_text": "Which of the following addresses are exactly identical?\n1. Priya Sharma, Flat 101, B Wing, Sky View Apartments, Pune, 411005\n2. Priya Sharma, Flat 101, B Wing, Sky View Apartments, Pune, 411005\n3. Priya Sharma, Flat 101, B Wing, Skyview Apartments, Pune, 411005\n4. Priya Sharma, Flat 101, B Wing, Sky View Apartments, Mumbai, 411005",
+    "options": [
+      "1 and 2",
+      "1 and 3",
+      "2 and 4",
+      "3 and 4"
+    ],
+    "correct_option": 1,
+    "explanation": "Addresses 1 and 2 are exactly identical in every detail. Address 3 has 'Skyview' instead of 'Sky View', and Address 4 has 'Mumbai' instead of 'Pune'.",
+    "topic": "Other",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 16
+  },
+  {
+    "question_text": "Find the missing term in the series.\n7, 14, 21, 28, ?",
+    "options": [
+      "30",
+      "32",
+      "35",
+      "40"
+    ],
+    "correct_option": 3,
+    "explanation": "This is an arithmetic series where each subsequent term is obtained by adding 7 to the previous term. So, 28 + 7 = 35.",
+    "topic": "Series",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 17
+  },
+  {
+    "question_text": "Select the letter that will replace the question mark.\nB, D, F, H, ?",
+    "options": [
+      "I",
+      "J",
+      "K",
+      "L"
+    ],
+    "correct_option": 2,
+    "explanation": "Each letter in the series skips one letter in the alphabetical order (B+2=D, D+2=F, F+2=H). Following this pattern, the next letter after H (skipping I) is J.",
+    "topic": "Series",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 18
+  },
+  {
+    "question_text": "Select the letter-cluster that will replace the question mark.\nCDE, DEF, EFG, ?",
+    "options": [
+      "FGI",
+      "FGH",
+      "GHI",
+      "HGI"
+    ],
+    "correct_option": 2,
+    "explanation": "In this series, each subsequent letter-cluster is formed by advancing all letters of the previous cluster one step forward in the alphabet. So, EFG becomes FGH.",
+    "topic": "Series",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 19
+  },
+  {
+    "question_text": "Select the letter-cluster from among the given options that can replace the question mark (?) in the following series:\nFEWB, FKPK, FQIT, FWBC, ?",
+    "options": [
+      "FCUL",
+      "FCTL",
+      "FBUL",
+      "FCUK"
+    ],
+    "correct_option": 1,
+    "explanation": "The first letter 'F' remains constant. The second letter follows a +6 pattern (E+6=K, K+6=Q, Q+6=W, W+6=C). The third letter follows a -7 pattern (W-7=P, P-7=I, I-7=B, B-7=U, with wrap-around). The fourth letter follows a +9 pattern (B+9=K, K+9=T, T+9=C, C+9=L, with wrap-around). Combining these patterns, the next cluster is FCUL.",
+    "topic": "Series",
+    "difficulty": "Hard",
+    "section": "Reasoning",
+    "question_number": 20
+  },
+  {
+    "question_text": "Choose the option that continues the given series:\n5, 12, 26, 54, ?",
+    "options": [
+      "108",
+      "110",
+      "112",
+      "106"
+    ],
+    "correct_option": 2,
+    "explanation": "The pattern followed in the series is 'Previous_Term * 2 + 2'. So, 5*2+2=12, 12*2+2=26, 26*2+2=54. Following this, 54*2+2 = 108+2 = 110.",
+    "topic": "Series",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 21
+  },
+  {
+    "question_text": "Select the letter-cluster that will replace the question mark.\nCEG, HJL, MOQ, ?",
+    "options": [
+      "RST",
+      "RTV",
+      "SUV",
+      "QRS"
+    ],
+    "correct_option": 2,
+    "explanation": "In each letter-cluster, the letters advance by 2 positions (e.g., C+2=E, E+2=G). Between consecutive clusters, each corresponding letter advances by 5 positions (e.g., C+5=H, H+5=M). Following this pattern, M+5=R, O+5=T, Q+5=V, resulting in RTV.",
+    "topic": "Series",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 22
+  },
+  {
+    "question_text": "Statement:\nAll successful managers possess strong communication skills.\nConclusions:\nI. Some individuals with strong communication skills are successful managers.\nII. One cannot be a successful manager without strong communication skills.",
+    "options": [
+      "Only I follows",
+      "Only II follows",
+      "Both I and II follow",
+      "Neither I nor II follows"
+    ],
+    "correct_option": 3,
+    "explanation": "Conclusion I follows because if all successful managers possess strong communication skills, then the group of individuals with strong communication skills must necessarily include successful managers. Conclusion II also follows as the statement implies that strong communication skills are a prerequisite for managerial success, meaning their absence precludes one from being a successful manager.",
+    "topic": "Statement-Conclusion",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 23
+  },
+  {
+    "question_text": "Which of the following words cannot be formed using the letters of the word 'COMMUNITY'?",
+    "options": [
+      "COUNT",
+      "MINT",
+      "MOTOR",
+      "UNITY"
+    ],
+    "correct_option": 3,
+    "explanation": "The letters in the word 'COMMUNITY' are C, O, M, M, U, N, I, T, Y. The word 'MOTOR' requires the letter 'R', which is not present in 'COMMUNITY'. All other words (COUNT, MINT, UNITY) can be formed using the available letters.",
+    "topic": "Word Formation",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 24
+  },
+  {
+    "question_text": "Select the letter-cluster from among the given options that can replace the question mark (?) in the following series.\n\nGTC, KPF, OLI, ?",
+    "options": [
+      "SHL",
+      "SGK",
+      "THL",
+      "SIM"
+    ],
+    "correct_option": 1,
+    "explanation": "The pattern followed here is: 1st letter increases by +4 (G -> K -> O -> S), 2nd letter decreases by -4 (T -> P -> L -> H), and 3rd letter increases by +3 (C -> F -> I -> L). Thus, the next term is SHL.",
+    "topic": "Series",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 25
+  }
+]

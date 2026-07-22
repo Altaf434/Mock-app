@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Scorecard · Mock Exam Portal</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><span class="stamp">MOCK</span> Exam Portal</div>
+    <div class="who" id="who-badge"></div>
+  </header>
+
+  <div class="container" id="content">
+    <div class="loading"><span class="spinner"></span> Preparing your scorecard…</div>
+  </div>
+
+  <script src="/js/common.js"></script>
+  <script>
+    const visitor = requireVisitorOrRedirect();
+    if (visitor) renderWhoBadge("who-badge");
+
+    const params = new URLSearchParams(window.location.search);
+    const attemptId = params.get("attempt");
+
+    function breakdownRows(map) {
+      const entries = Object.entries(map);
+      return entries.map(([key, v]) => {
+        const pct = v.total ? Math.round((v.correct / v.total) * 100) : 0;
+        return `
+          <div class="breakdown-row">
+            <div>${escapeHtml(key)}</div>
+            <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
+            <div>${v.correct}/${v.total}</div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function reviewItem(item) {
+      const letters = ["A", "B", "C", "D", "E", "F"];
+      const optionsHtml = item.options.map((opt, i) => {
+        let cls = "review-opt";
+        if (i === item.correct_option) cls += " is-correct";
+        else if (i === item.selected_option) cls += " is-selected-wrong";
+        return `<div class="${cls}"><strong>${letters[i]}</strong> ${escapeHtml(opt)}</div>`;
+      }).join("");
+
+      return `
+        <div class="review-item">
+          <div class="q-tag-row">
+            <span class="outcome-badge ${item.outcome}">${item.outcome}</span>
+            <span class="tag">${escapeHtml(item.section)}</span>
+            <span class="tag">${escapeHtml(item.topic)}</span>
+            <span class="tag">${escapeHtml(item.difficulty)}</span>
+          </div>
+          <div class="q-number">Question ${item.question_number}</div>
+          <p class="q-text" style="font-size:1rem;">${escapeHtml(item.question_text)}</p>
+          ${optionsHtml}
+          ${item.explanation ? `<div class="explanation">${escapeHtml(item.explanation)}</div>` : ""}
+        </div>
+      `;
+    }
+
+    async function load() {
+      if (!attemptId) {
+        window.location.href = "/papers.html";
+        return;
+      }
+      let res;
+      try {
+        res = await fetch(`/api/attempts/${attemptId}`);
+      } catch {
+        document.getElementById("content").innerHTML = `<div class="empty-state">Couldn't reach the server. <a href="?attempt=${encodeURIComponent(attemptId)}">Retry</a></div>`;
+        return;
+      }
+      if (!res.ok) {
+        document.getElementById("content").innerHTML = `
+          <div class="empty-state">
+            Couldn't find that attempt.<br/>
+            <a class="btn btn-primary" style="margin-top:16px;" href="/papers.html">Back to booklets</a>
+          </div>`;
+        return;
+      }
+      const attempt = await res.json();
+      const r = attempt.result;
+      // Marks-based ring fill (can go negative on paper, clamp visually to 0-100)
+      const marksPct = r.maxMarks > 0 ? Math.max(0, Math.min(100, Math.round((r.marksGained / r.maxMarks) * 100))) : 0;
+
+      document.getElementById("content").innerHTML = `
+        <div class="scorecard-head">
+          <div class="score-ring" style="--pct:${marksPct}">
+            <div class="inner">
+              <div class="pct">${r.marksGained}</div>
+              <div class="lbl">MARKS / ${r.maxMarks}</div>
+            </div>
+          </div>
+          <div class="scorecard-stats">
+            <div class="stat correct"><div class="n">${r.correctCount}</div><div class="l">Correct (+${r.marksPerCorrect})</div></div>
+            <div class="stat wrong"><div class="n">${r.wrongCount}</div><div class="l">Wrong (&minus;${r.negativeMarking})</div></div>
+            <div class="stat skipped"><div class="n">${r.skippedCount}</div><div class="l">Skipped (0)</div></div>
+            <div class="stat"><div class="n">${formatSeconds(r.timeTakenSeconds)}</div><div class="l">Time taken</div></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Accuracy</h3>
+          <p style="color:var(--muted);margin:-4px 0 16px;">
+            ${r.scorePercent}% of questions answered correctly — marks account for the
+            &minus;${r.negativeMarking} deduction per wrong answer, so marks and accuracy% won't always match.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Section-wise accuracy</h3>
+          ${breakdownRows(r.bySection)}
+        </div>
+
+        <div class="panel">
+          <h3>Topic-wise accuracy</h3>
+          ${breakdownRows(r.byTopic)}
+        </div>
+
+        <div class="panel">
+          <h3>Difficulty-wise accuracy</h3>
+          ${breakdownRows(r.byDifficulty)}
+        </div>
+
+        <div class="panel">
+          <h3>Question-by-question review</h3>
+          <div class="filter-row" id="filter-row">
+            <div class="filter-chip active" data-f="all">All</div>
+            <div class="filter-chip" data-f="wrong">Wrong only</div>
+            <div class="filter-chip" data-f="skipped">Skipped only</div>
+          </div>
+          <div id="review-list">${r.review.map(reviewItem).join("")}</div>
+        </div>
+
+        <div class="center-actions">
+          <a class="btn btn-outline" href="/papers.html">Back to booklets</a>
+          <a class="btn btn-primary" href="/exam.html?paper=${encodeURIComponent(attempt.paperId)}">Reattempt this paper</a>
+        </div>
+      `;
+
+      document.querySelectorAll(".filter-chip").forEach(chip => {
+        chip.addEventListener("click", () => {
+          document.querySelectorAll(".filter-chip").forEach(c => c.classList.remove("active"));
+          chip.classList.add("active");
+          const f = chip.dataset.f;
+          const filtered = f === "all" ? r.review : r.review.filter(item => item.outcome === f);
+          document.getElementById("review-list").innerHTML = filtered.length
+            ? filtered.map(reviewItem).join("")
+            : `<p style="color:var(--muted);">Nothing to show here.</p>`;
+        });
+      });
+    }
+
+    load();
+  </script>
+</body>
+</html>

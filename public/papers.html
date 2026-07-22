@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Question Booklets · Mock Exam Portal</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><span class="stamp">MOCK</span> Exam Portal</div>
+    <div class="who" id="who-badge"></div>
+  </header>
+
+  <div class="container">
+    <h1 class="page-title">Question booklets available</h1>
+    <p class="page-sub">Pick a paper below. Once you start, the clock starts too.</p>
+
+    <div id="loading" class="loading"><span class="spinner"></span> Loading booklets…</div>
+    <div id="grid" class="paper-grid" style="display:none;"></div>
+    <div id="empty" class="empty-state" style="display:none;">
+      No papers have been published yet. Check back soon.
+    </div>
+  </div>
+
+  <script src="/js/common.js"></script>
+  <script>
+    const visitor = requireVisitorOrRedirect();
+    if (visitor) renderWhoBadge("who-badge");
+
+    async function loadPapers() {
+      const loading = document.getElementById("loading");
+      const grid = document.getElementById("grid");
+      const empty = document.getElementById("empty");
+
+      let papers;
+      try {
+        const res = await fetch("/api/papers");
+        if (!res.ok) throw new Error("bad response");
+        papers = await res.json();
+      } catch {
+        loading.innerHTML = `Couldn't load booklets. <a href="#" id="retry-link">Try again</a>.`;
+        document.getElementById("retry-link").addEventListener("click", (e) => {
+          e.preventDefault();
+          loading.innerHTML = `<span class="spinner"></span> Loading booklets…`;
+          loadPapers();
+        });
+        return;
+      }
+
+      loading.style.display = "none";
+
+      if (!papers.length) {
+        empty.style.display = "block";
+        return;
+      }
+
+      grid.style.display = "grid";
+      grid.innerHTML = papers.map((p, i) => `
+        <div class="paper-card">
+          <div class="booklet-no">BOOKLET ${String(i + 1).padStart(2, "0")}</div>
+          <h3>${escapeHtml(p.title)}</h3>
+          <div class="meta-row">
+            <span class="tag">${p.totalQuestions} questions</span>
+            ${p.sections.map(s => `<span class="tag">${escapeHtml(s)}</span>`).join("")}
+          </div>
+          <a class="btn btn-primary" href="/exam.html?paper=${encodeURIComponent(p.id)}">Start attempt</a>
+        </div>
+      `).join("");
+    }
+
+    loadPapers();
+  </script>
+</body>
+</html>

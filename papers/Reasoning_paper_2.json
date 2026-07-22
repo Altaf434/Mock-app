@@ -1,0 +1,377 @@
+[
+  {
+    "question_text": "In the following question, select the related number from the given alternatives.\n8 : 66 :: 11 : ?",
+    "options": [
+      "121",
+      "123",
+      "125",
+      "144"
+    ],
+    "correct_option": 2,
+    "explanation": "The pattern followed is x : (x^2 + 2). For 8, 8^2 + 2 = 64 + 2 = 66. Similarly, for 11, 11^2 + 2 = 121 + 2 = 123.",
+    "topic": "Analogy",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 1
+  },
+  {
+    "question_text": "In the following question, select the related word from the given alternatives.\nDoctor : Hospital :: Teacher : ?",
+    "options": [
+      "Office",
+      "School",
+      "Library",
+      "Laboratory"
+    ],
+    "correct_option": 2,
+    "explanation": "A doctor's primary workplace is a hospital. Similarly, a teacher's primary workplace is a school.",
+    "topic": "Analogy",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 2
+  },
+  {
+    "question_text": "Apply the same pattern used in the following group and find the correct option.\nACE : GIK :: MDF : ?",
+    "options": [
+      "SJL",
+      "RJK",
+      "SKL",
+      "SIL"
+    ],
+    "correct_option": 1,
+    "explanation": "Each letter in the first group is shifted forward by 6 positions to get the corresponding letter of the second group (A+6=G, C+6=I, E+6=K). Applying the same logic to MDF, we get S, J, and L.",
+    "topic": "Analogy",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 3
+  },
+  {
+    "question_text": "Pointing to a girl in a photograph, a boy says, \"She is the only daughter of my mother's only daughter.\" How is the girl related to the boy?",
+    "options": [
+      "Niece",
+      "Sister",
+      "Daughter",
+      "Aunt"
+    ],
+    "correct_option": 1,
+    "explanation": "The boy's mother's only daughter is the boy's sister. The daughter of the boy's sister is his niece.",
+    "topic": "Blood Relations",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 4
+  },
+  {
+    "question_text": "Pointing to a woman, a man says, \"She is the mother of my sister's only brother's daughter.\" How is the woman related to the man?",
+    "options": [
+      "Sister",
+      "Wife",
+      "Mother",
+      "Sister-in-law"
+    ],
+    "correct_option": 2,
+    "explanation": "The man's sister's only brother is the man himself. The mother of the man's daughter is his wife.",
+    "topic": "Blood Relations",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 5
+  },
+  {
+    "question_text": "Find the odd one out.",
+    "options": [
+      "Jupiter",
+      "Mars",
+      "Venus",
+      "Moon"
+    ],
+    "correct_option": 4,
+    "explanation": "Jupiter, Mars, and Venus are planets, whereas the Moon is a natural satellite.",
+    "topic": "Classification",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 6
+  },
+  {
+    "question_text": "Four number pairs have been given, out of which three are alike in some manner and one is different. Select the number pair that is different from the rest.",
+    "options": [
+      "14 - 203",
+      "12 - 150",
+      "16 - 264",
+      "18 - 336"
+    ],
+    "correct_option": 4,
+    "explanation": "In all options except the fourth, the pattern followed is: second number = (first number)² + (first number / 2). For 18, the value should be 18² + 9 = 333, not 336.",
+    "topic": "Classification",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 7
+  },
+  {
+    "question_text": "If 'MIND' is coded as 3#7@ and 'MEND' is coded as 3$7@, how is 'NIME' coded in that language?",
+    "options": [
+      "73#$",
+      "7#3$",
+      "3#7$",
+      "7#$3"
+    ],
+    "correct_option": 2,
+    "explanation": "By comparing the two given words, we find the letter-to-symbol mapping: M = 3, I = #, N = 7, D = @, and E = $. Thus, 'NIME' is coded as 7#3$.",
+    "topic": "Coding-Decoding",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 8
+  },
+  {
+    "question_text": "If GARMENT is coded as UOFNSBH, then how will JACKET be coded in that language?",
+    "options": [
+      "UFKCBK",
+      "UFLDBK",
+      "VELDAK",
+      "UFLDCK"
+    ],
+    "correct_option": 2,
+    "explanation": "The pattern follows reversing the letters of the word and then shifting each letter by +1. GARMENT reversed is TNEMRAG, and adding +1 to each letter gives UOFNSBH. Similarly, JACKET reversed is TEKCAJ, and adding +1 to each letter gives UFLDBK.",
+    "topic": "Coding-Decoding",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 9
+  },
+  {
+    "question_text": "If 5 # 3 = 16 and 8 # 2 = 20, then 7 # 4 = ?",
+    "options": [
+      "24",
+      "22",
+      "18",
+      "26"
+    ],
+    "correct_option": 2,
+    "explanation": "The pattern followed is: (First number + Second number) * 2. Therefore, (7 + 4) * 2 = 11 * 2 = 22.",
+    "topic": "Mathematical Operations",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 10
+  },
+  {
+    "question_text": "Two numbers are in the ratio 3 : 4. If their difference is 15, find the larger number.",
+    "options": [
+      "45",
+      "50",
+      "60",
+      "75"
+    ],
+    "correct_option": 3,
+    "explanation": "Let the numbers be 3x and 4x. Their difference is 4x - 3x = x = 15. The larger number is 4x = 4 * 15 = 60.",
+    "topic": "Mathematical Operations",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 11
+  },
+  {
+    "question_text": "If '+' means '-', '-' means '*', '*' means '/', and '/' means '+', then what is the value of 15 - 3 * 5 / 10 + 4?",
+    "options": [
+      "15",
+      "20",
+      "11",
+      "25"
+    ],
+    "correct_option": 1,
+    "explanation": "Replacing the signs, the expression becomes: 15 * 3 / 5 + 10 - 4. According to BODMAS, we get 9 + 10 - 4 = 15.",
+    "topic": "Mathematical Operations",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 12
+  },
+  {
+    "question_text": "If 6 @ 4 = 32 and 5 @ 3 = 22, then 7 @ 5 = ?",
+    "options": [
+      "39",
+      "42",
+      "44",
+      "54"
+    ],
+    "correct_option": 3,
+    "explanation": "The pattern is: (First number)^2 - (Second number). For the final term: 7^2 - 5 = 49 - 5 = 44.",
+    "topic": "Mathematical Operations",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 13
+  },
+  {
+    "question_text": "If 5 & 3 = 40 and 8 & 4 = 96, then 7 & 5 = ?",
+    "options": [
+      "72",
+      "84",
+      "90",
+      "96"
+    ],
+    "correct_option": 2,
+    "explanation": "The pattern followed is (first number + second number) × first number. For 5 & 3: (5 + 3) × 5 = 40. For 8 & 4: (8 + 4) × 8 = 96. Similarly, for 7 & 5: (7 + 5) × 7 = 12 × 7 = 84.",
+    "topic": "Mathematical Operations",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 14
+  },
+  {
+    "question_text": "If '+' means '÷', '-' means '×', '×' means '+' and '÷' means '-', which of the following equations is correct?",
+    "options": [
+      "12 - 3 + 4 × 8 ÷ 2 = 15",
+      "9 - 4 + 2 × 6 ÷ 3 = 18",
+      "8 - 6 + 3 × 5 ÷ 4 = 14",
+      "15 - 2 + 6 × 10 ÷ 5 = 12"
+    ],
+    "correct_option": 1,
+    "explanation": "Replacing the mathematical signs in option 1: 12 × 3 ÷ 4 + 8 - 2 = 36 ÷ 4 + 8 - 2 = 9 + 8 - 2 = 15, which is correct.",
+    "topic": "Mathematical Operations",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 15
+  },
+  {
+    "question_text": "Two numbers are in the ratio 3 : 5 and their difference is 36. Find the numbers.",
+    "options": [
+      "48, 84",
+      "54, 90",
+      "45, 81",
+      "60, 96"
+    ],
+    "correct_option": 2,
+    "explanation": "Let the numbers be 3x and 5x. Their difference is 5x - 3x = 2x = 36, which gives x = 18. Thus, the numbers are 3 * 18 = 54 and 5 * 18 = 90.",
+    "topic": "Other",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 16
+  },
+  {
+    "question_text": "Identify the exact matching address for the following: Flat No. 304, Green Meadows, Sector 15, Rohini, Delhi - 110085",
+    "options": [
+      "Flat No. 304, Green Meadow, Sector 15, Rohini, Delhi - 110085",
+      "Flat No. 304, Green Meadows, Sector 15, Rohini, Delhi - 110085",
+      "Flat No. 304, Green Meadows, Sector 15, Rohini, Delhi - 110058",
+      "Flat No. 340, Green Meadows, Sector 15, Rohini, Delhi - 110085"
+    ],
+    "correct_option": 2,
+    "explanation": "Option 2 is the exact character-by-character match. Option 1 has 'Meadow' instead of 'Meadows', Option 3 has the wrong pin code (110058), and Option 4 has '340' instead of '304'.",
+    "topic": "Other",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 17
+  },
+  {
+    "question_text": "The sum of the ages of a mother and her daughter is 56 years. After 4 years, the mother's age will be 3 times the age of her daughter. What is the current age of the daughter?",
+    "options": [
+      "10 years",
+      "12 years",
+      "14 years",
+      "16 years"
+    ],
+    "correct_option": 2,
+    "explanation": "In 4 years, the sum of their ages will be 56 + 4 + 4 = 64 years. At that time, the mother's age (3x) plus the daughter's age (x) will equal 64, meaning 4x = 64, or x = 16. Subtracting 4 years gives the daughter's current age as 12.",
+    "topic": "Other",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 18
+  },
+  {
+    "question_text": "In a queue of 45 people, A is 22nd from the front and B is 30th from the back. How many people are there between A and B?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "correct_option": 1,
+    "explanation": "Since the sum of the positions of A and B (22 + 30 = 52) is greater than the total number of people (45), this is an overlapping case. The number of people between them is calculated as: (Sum of positions) - Total - 2 = 52 - 45 - 2 = 5.",
+    "topic": "Other",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 19
+  },
+  {
+    "question_text": "A frog is at the bottom of a 30-foot well. Each day, it climbs up 3 feet and slips back 2 feet. How many days will it take for the frog to reach the top of the well?",
+    "options": [
+      "30",
+      "28",
+      "29",
+      "27"
+    ],
+    "correct_option": 2,
+    "explanation": "On the final day, the frog climbs 3 feet to reach the top and does not slip. Subtracting this 3-foot final leap from 30 feet leaves 27 feet. At a net gain of 1 foot per day (3 - 2 = 1), it takes 27 days to reach 27 feet, and on the 28th day, the final climb of 3 feet gets it to the top.",
+    "topic": "Other",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 20
+  },
+  {
+    "question_text": "Find the missing term in the series.\n5, 11, 17, 23, 29, ?",
+    "options": [
+      "33",
+      "34",
+      "35",
+      "36"
+    ],
+    "correct_option": 3,
+    "explanation": "The difference between consecutive terms is consistently +6. Adding 6 to the last term (29) gives 35.",
+    "topic": "Series",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 21
+  },
+  {
+    "question_text": "What will come in place of the question mark (?) in the following series?\n3, 12, 48, 192, ?",
+    "options": [
+      "576",
+      "768",
+      "684",
+      "812"
+    ],
+    "correct_option": 2,
+    "explanation": "Each successive term is obtained by multiplying the previous term by 4. Thus, 192 multiplied by 4 is 768.",
+    "topic": "Series",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 22
+  },
+  {
+    "question_text": "Find the next letter in the series.\nB, D, G, K, P, ?",
+    "options": [
+      "U",
+      "V",
+      "W",
+      "T"
+    ],
+    "correct_option": 2,
+    "explanation": "The differences between the alphabetical positions of consecutive letters increase progressively: +2, +3, +4, +5. Adding 6 to the position of P (16) gives 22, which corresponds to the letter V.",
+    "topic": "Series",
+    "difficulty": "Easy",
+    "section": "Reasoning",
+    "question_number": 23
+  },
+  {
+    "question_text": "Select the letter-cluster from among the given options that can replace the question mark (?) in the following series.\n\nDKV, HQC, LWJ, ?",
+    "options": [
+      "PBR",
+      "PCQ",
+      "OBQ",
+      "OCQ"
+    ],
+    "correct_option": 2,
+    "explanation": "The pattern followed here is: 1st letter increases by +4 (D -> H -> L -> P), 2nd letter increases by +6 (K -> Q -> W -> C), and 3rd letter increases by +7 (V -> C -> J -> Q). Thus, the next term is PCQ.",
+    "topic": "Series",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 24
+  },
+  {
+    "question_text": "Select the letter-cluster from among the given options that can replace the question mark (?) in the following series.\n\nGTC, KPF, OLI, ?",
+    "options": [
+      "SHL",
+      "SGK",
+      "THL",
+      "SIM"
+    ],
+    "correct_option": 1,
+    "explanation": "The pattern followed here is: 1st letter increases by +4 (G -> K -> O -> S), 2nd letter decreases by -4 (T -> P -> L -> H), and 3rd letter increases by +3 (C -> F -> I -> L). Thus, the next term is SHL.",
+    "topic": "Series",
+    "difficulty": "Medium",
+    "section": "Reasoning",
+    "question_number": 25
+  }
+]
