@@ -32,14 +32,14 @@ router.post("/:id/ping", async (req, res) => {
   res.json({ ok: true });
 });
 
-router.get("/:id", (req, res) => {
-  const visitor = store.getVisitor(req.params.id);
+router.get("/:id", async (req, res) => {
+  const visitor = await store.getVisitor(req.params.id);
   if (!visitor) return res.status(404).json({ error: "visitor not found" });
   res.json({ id: visitor.id, name: visitor.name, location: visitor.location });
 });
 
-router.get("/:id/attempts", (req, res) => {
-  const attempts = store.listAttemptsForVisitor(req.params.id);
+router.get("/:id/attempts", async (req, res) => {
+  const attempts = await store.listAttemptsForVisitor(req.params.id);
   res.json(
     attempts.map((a) => ({
       id: a.id,

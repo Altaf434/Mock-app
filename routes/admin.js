@@ -15,12 +15,12 @@ function checkKey(req, res, next) {
   next();
 }
 
-router.get("/visitors", checkKey, (req, res) => {
-  res.json(store.listVisitors());
+router.get("/visitors", checkKey, async (req, res) => {
+  res.json(await store.listVisitors());
 });
 
-router.get("/attempts", checkKey, (req, res) => {
-  res.json(store.listAllAttempts());
+router.get("/attempts", checkKey, async (req, res) => {
+  res.json(await store.listAllAttempts());
 });
 
 module.exports = router;

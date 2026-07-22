@@ -54,9 +54,12 @@ immediately. Delete them once you drop in your real ones.
 
 ## Running locally
 
+Requires a Postgres database — see "Where visits and attempts are logged"
+below for how to get a free one and set `DATABASE_URL`.
+
 ```bash
 npm install
-npm start
+DATABASE_URL="postgres://..." npm start
 ```
 
 Then open http://localhost:3000
@@ -82,14 +85,29 @@ Then open http://localhost:3000
 
 ## Where visits and attempts are logged
 
-Everything is stored as plain JSON under `data/`:
+Everything is stored in Postgres (`lib/store.js`), in two tables that are
+created automatically the first time the app runs:
 
-- `data/visitors.json` — one row per person who filled the gate: name,
-  location, IP, user agent, first-seen and last-seen timestamps.
-- `data/attempts.json` — one row per submitted paper: who took it, which
-  paper, full score breakdown, and the full question-by-question result.
+- `visitors` — one row per person who filled the gate: name, location, IP,
+  user agent, first-seen and last-seen timestamps.
+- `attempts` — one row per submitted paper: who took it, which paper, full
+  score breakdown, and the full question-by-question result (as JSONB).
 
-To check these yourself, set an `ADMIN_KEY` environment variable and visit:
+Using a real database (instead of files on disk) means this data survives
+redeploys and restarts, unlike the filesystem on most free hosting tiers
+(including Render's).
+
+**Getting a free Postgres database (Supabase):**
+
+1. Create a free project at [supabase.com](https://supabase.com).
+2. Project **Settings → Database → Connection string** → copy the URI
+   (choose the "Connection pooling" string if offered — it handles many
+   short-lived connections better, which fits a small web app like this).
+3. Set it as the `DATABASE_URL` environment variable — locally (see
+   "Running locally" above) and on Render (see below). The same database
+   works for both; you don't need a separate one for local testing.
+
+To check the logs yourself, set an `ADMIN_KEY` environment variable and visit:
 
 ```
 /api/admin/visitors?key=YOUR_ADMIN_KEY
@@ -99,21 +117,6 @@ To check these yourself, set an `ADMIN_KEY` environment variable and visit:
 This is intentionally lightweight (a shared key in the URL) — enough to
 check logs yourself, not a real auth system. Don't share the key.
 
-### Persistence note
-
-This JSON-file store is great for getting started, but on most hosting
-platforms (including Render's free tier) the filesystem is **ephemeral** —
-data can be wiped on redeploy or restart. Two ways to fix this once you
-have real traffic:
-
-- **Cheapest fix**: attach a persistent disk to your Render service
-  (see the commented-out `disk:` block in `render.yaml`) and point it at
-  the `data/` folder.
-- **More robust fix**: swap `lib/store.js` for a real database (Postgres
-  is a good default — Render has a managed Postgres add-on). Every route
-  file only imports from `lib/store.js`, so this is the only file you'd
-  need to rewrite.
-
 ## Deploying to Render
 
 1. Push this folder to a GitHub repo.
@@ -121,8 +124,9 @@ have real traffic:
 3. Render should auto-detect `render.yaml`. If not, set manually:
    - Build command: `npm install`
    - Start command: `npm start`
-4. Add an environment variable `ADMIN_KEY` set to a password of your choice
-   (this is what protects `/api/admin/*`).
+4. Add two environment variables:
+   - `ADMIN_KEY` — a password of your choice (protects `/api/admin/*`).
+   - `DATABASE_URL` — your Supabase connection string (see above).
 5. Deploy. Your site is live at the `.onrender.com` URL Render gives you.
 6. When you're ready to point your own domain at it, add it under the
    service's **Settings → Custom Domains**.
@@ -143,7 +147,7 @@ in that folder automatically on each request.
 exam-portal/
   server.js            Express app entry point
   lib/
-    store.js            JSON-file backed storage (visitors + attempts)
+    store.js            Postgres-backed storage (visitors + attempts)
     papers.js           Loads & normalizes paper JSON files
     grade.js            Grading + analytics computation
   routes/
@@ -152,6 +156,5 @@ exam-portal/
     attempts.js            POST /api/attempts, GET /api/attempts/:id
     admin.js                GET /api/admin/visitors, /attempts
   papers/               <- put your generated paper JSON files here
-  data/                 visitors.json / attempts.json (auto-created)
   public/               frontend (index/papers/exam/results .html + css/js)
 ```

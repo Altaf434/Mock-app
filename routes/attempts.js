@@ -12,7 +12,7 @@ router.post("/", async (req, res) => {
     return res.status(400).json({ error: "visitorId, paperId and answers[] are required" });
   }
 
-  const visitor = store.getVisitor(visitorId);
+  const visitor = await store.getVisitor(visitorId);
   if (!visitor) return res.status(404).json({ error: "visitor not found - please refresh" });
 
   const paper = getPaperById(paperId);
@@ -31,8 +31,8 @@ router.post("/", async (req, res) => {
   res.json({ attemptId: attempt.id, result });
 });
 
-router.get("/:id", (req, res) => {
-  const attempt = store.getAttempt(req.params.id);
+router.get("/:id", async (req, res) => {
+  const attempt = await store.getAttempt(req.params.id);
   if (!attempt) return res.status(404).json({ error: "attempt not found" });
   res.json(attempt);
 });
